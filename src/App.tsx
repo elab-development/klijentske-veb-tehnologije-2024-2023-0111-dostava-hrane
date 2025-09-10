@@ -1,17 +1,17 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import "./styles.css";
 
-function App() {
+export default function App() {
   return (
-    <div style={{ padding: 16 }}>
-      <h1>Food Delivery Platform</h1>
-      <nav style={{ display: "flex", gap: 12, marginBottom: 16 }}>
-        <Link to="/">Home</Link>
-        <Link to="/restaurants">Restaurants</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/cart">Cart</Link>
-      </nav>
-      <Outlet />
-    </div>
+    <>
+      <Navbar />
+      <main className="container">
+        <h1>Food Delivery Platform</h1>
+        <div className="card" style={{ marginTop: 12 }}>
+          <Outlet />
+        </div>
+      </main>
+    </>
   );
 }
-export default App;
