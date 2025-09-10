@@ -1,21 +1,18 @@
 import type { Order, OrderItem } from "../models/Order";
+import type { IOrderManager } from "../models/IOrderManager";
 
-export class OrderManager {
+export class OrderManager implements IOrderManager {
     private storageKey = "orders_v1";
-
     private read(): Order[] {
         const raw = localStorage.getItem(this.storageKey);
         return raw ? (JSON.parse(raw) as Order[]) : [];
     }
-
     private write(orders: Order[]) {
         localStorage.setItem(this.storageKey, JSON.stringify(orders));
     }
-
     getOrders(userId: string): Order[] {
         return this.read().filter((o) => o.userId === userId);
     }
-
     placeOrder(userId: string, items: OrderItem[]): Order {
         const total = items.reduce((s, i) => s + i.qty * i.dish.price, 0);
         const order: Order = {
@@ -31,7 +28,6 @@ export class OrderManager {
         this.write(all);
         return order;
     }
-
     cancelOrder(orderId: string): void {
         const all = this.read();
         const idx = all.findIndex((o) => o.id === orderId);
