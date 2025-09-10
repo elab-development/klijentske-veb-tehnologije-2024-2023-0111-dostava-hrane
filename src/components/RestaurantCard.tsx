@@ -3,7 +3,7 @@ import type { Restaurant } from "../models/Restaurant";
 
 export default function RestaurantCard({ r }: { r: Restaurant }) {
     return (
-        <Link to="#" className="card" style={{ display: "block" }}>
+        <Link to={`/restaurants/${r.id}`} className="card" style={{ display: "block" }}>
             <img
                 src={r.image}
                 alt={r.name}
