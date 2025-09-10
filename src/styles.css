@@ -112,3 +112,9 @@ a {
     font-size: 12px;
     color: var(--muted);
 }
+
+.hr {
+    border: 0;
+    border-top: 1px solid #1f2937;
+    margin: 16px 0;
+}

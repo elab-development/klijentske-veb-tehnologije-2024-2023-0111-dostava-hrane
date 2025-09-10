@@ -2,15 +2,16 @@ import { useParams, useNavigate } from "react-router-dom";
 import { restaurants } from "../data/seed";
 import DishCard from "../components/DishCard";
 import type { Dish } from "../models/Dish";
+import { useCart } from "../context/CartContext";
 
 export default function RestaurantDetails() {
     const { id } = useParams();
     const nav = useNavigate();
     const r = restaurants.find((x) => x.id === id);
+    const { add } = useCart();
 
     const handleAdd = (dish: Dish) => {
-        alert(`Dodato u korpu: ${dish.name}`);
-        // Ovde će kasnije ići prava logika sa CartContext
+        add(dish);
     };
 
     if (!r) {
