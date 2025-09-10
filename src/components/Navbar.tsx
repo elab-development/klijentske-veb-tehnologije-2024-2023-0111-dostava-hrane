@@ -17,6 +17,7 @@ export default function Navbar() {
                     <NavLink to="/restaurants">Restaurants</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
                     <NavLink to="/cart">Cart ({count})</NavLink>
+                    <NavLink to="/orders">Orders</NavLink>
                 </nav>
                 <div className="links">
                     {user ? (
