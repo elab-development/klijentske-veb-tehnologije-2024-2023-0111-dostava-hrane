@@ -39,7 +39,8 @@ export default function Cart() {
                             <strong>Total: € {total.toFixed(2)}</strong>
                             <div style={{ display: "flex", gap: 8 }}>
                                 <button className="btn" onClick={clear}>Clear</button>
-                                <Link to="/contact" className="btn">Checkout (demo)</Link>
+                                <Link to="/checkout" className="btn">Checkout</Link>
+
                             </div>
                         </div>
                     </>
