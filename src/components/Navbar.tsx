@@ -2,12 +2,14 @@ import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 import { useLocation } from "react-router-dom";
+import { useFavorites } from "../context/FavoritesContext";
 
 export default function Navbar() {
     const { items } = useCart();
     const count = items.reduce((s, i) => s + i.qty, 0);
     const { user, logout } = useAuth();
     const loc = useLocation();
+    const { ids } = useFavorites();
     return (
         <header className="nav">
             <div className="nav-inner">
@@ -18,6 +20,7 @@ export default function Navbar() {
                     <NavLink to="/contact">Contact</NavLink>
                     <NavLink to="/cart">Cart ({count})</NavLink>
                     <NavLink to="/orders">Orders</NavLink>
+                    <NavLink to="/favorites">Favorites ({ids.length})</NavLink>
                 </nav>
                 <div className="links">
                     {user ? (
