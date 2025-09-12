@@ -8,6 +8,7 @@ import RestaurantDetails from "./pages/RestaurantDetails";
 import Login from "./pages/Login";
 import Checkout from "./pages/Checkout";
 import Orders from "./pages/Orders";
+import Favorites from "./pages/Favorites";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -20,6 +21,7 @@ export const router = createBrowserRouter(
             <Route path="login" element={<Login />} />
             <Route path="checkout" element={<Checkout />} />
             <Route path="orders" element={<Orders />} />
+            <Route path="favorites" element={<Favorites />} />
         </Route>
     )
 );
