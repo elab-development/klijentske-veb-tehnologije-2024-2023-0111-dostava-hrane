@@ -84,7 +84,6 @@ a {
 
 .btn:hover {
     background: #16a34a;
-    /* tamnija zelena */
 }
 
 .input {
@@ -117,4 +116,9 @@ a {
     border: 0;
     border-top: 1px solid #1f2937;
     margin: 16px 0;
+}
+
+.btn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
 }
