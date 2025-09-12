@@ -2,7 +2,7 @@ import { useFavorites } from "../context/FavoritesContext";
 import { restaurants } from "../data/seed";
 import RestaurantCard from "../components/RestaurantCard";
 import Pagination from "../components/Pagination";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 
 export default function Favorites() {
     const { ids } = useFavorites();
@@ -16,6 +16,9 @@ export default function Favorites() {
         const start = (page - 1) * pageSize;
         return { total, paged: favRestaurants.slice(start, start + pageSize) };
     }, [favRestaurants, page]);
+    useEffect(() => {
+        setPage(1);
+    }, [ids]);
 
     if (favRestaurants.length === 0) return <p>No favorites yet.</p>;
 
